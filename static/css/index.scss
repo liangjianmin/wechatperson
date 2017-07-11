@@ -1,0 +1,52 @@
+@charset "utf-8";
+@import "global";
+#app{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tip-prompt{
+  width: 100%;
+  padding:5px 0 20px 10px;
+  font-size: 13px;
+  text-align: left;
+  color: #ffffff;
+  .time{
+    width: 100%;
+    line-height: 38px;
+  }
+}
+
+.picwrap{
+  width: 100%;
+ .btn{
+   width: 90%;
+   height: 40px;
+   margin: 10px auto 0;
+   line-height: 40px;
+   border: none;
+   border-radius: 10px;
+   background:#00a9e0 !important;
+   display: block;
+   color: #ffffff;
+ }
+  .piclist{
+    width: 90%;
+    margin: 20px auto 0;
+    li{
+      width: 32%;
+      height: 100px;
+      margin-right: 2%;
+      margin-bottom: 2%;
+      float: left;
+      .piclistattr{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    li:nth-of-type(3n){
+      margin-right: 0;
+    }
+  }
+}

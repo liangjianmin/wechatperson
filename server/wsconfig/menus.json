@@ -1,0 +1,39 @@
+{
+  "button": [
+    {
+      "type": "view",
+      "name": "个人主页",
+      "url": "http://lianjianmintest.tunnel.echomod.cn"
+    },
+    {
+      "type": "click",
+      "name": "聊污话题",
+      "key": "today_recommend"
+    },
+    {
+      "name": "小工具",
+      "sub_button": [
+        {
+          "type": "scancode_waitmsg",
+          "name": "扫一扫",
+          "key": "scancode"
+        },
+        {
+          "type": "view",
+          "name": "搜索",
+          "url": "http://www.baidu.com/"
+        },
+        {
+          "type": "pic_sysphoto",
+          "name": "发污图",
+          "key": "take_photo"
+        },
+        {
+          "type": "location_select",
+          "name": "发送位置",
+          "key": "send_location"
+        }
+      ]
+    }
+  ]
+}

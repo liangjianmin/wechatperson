@@ -1,0 +1,11 @@
+{
+  "wechat": {
+    "grant_type": "client_credential",
+    "appid": "wx43f6b6ad9b8c8c02",
+    "secret": "e65e8d3144391618c489ee66e5388c60",
+    "noncestr": "Wm3WZYTPz0wzccnW",
+    "accessTokenUrl": "https://api.weixin.qq.com/cgi-bin/token",
+    "ticketUrl": "https://api.weixin.qq.com/cgi-bin/ticket/getticket",
+    "cache_duration": 86400000
+  }
+}
