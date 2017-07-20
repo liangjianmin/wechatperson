@@ -14,16 +14,15 @@
             <div v-if="uploadshow">
                 <input type="button" value="上传图片" class="btn" @click.stop="chooseImage" v-if="flag">
                 <ul class="piclist clr boxsiz">
-                    <li v-for="item in piclist">
+                    <li v-for="(item,index) in piclist" @click="previewImage(index)">
                         <img :src="item" alt="" class="piclistattr">
                     </li>
                 </ul>
                 <input type="button" :value="btntext" class="btn" id="save" v-if="visibile" @click.stop="handleSubmit">
-                <p class="noticetext">警告：请勿上传色情图片！！</p>
             </div>
         </div>
         <div class="entry" v-if="entry">
-            <input type="button" value="进入您的个人展示页面" class="btn" @click.stop="entrySubmit">
+            <input type="button" value="点击进入你的相册页面" class="btn" @click.stop="entrySubmit">
         </div>
     </section>
 </template>
@@ -46,7 +45,7 @@
                 piclist: [],
                 flag: true,
                 visibile: false,
-                count: 6,
+                count: 4,
                 serverId: [],
                 userinfo:[],
                 openid:''
@@ -110,24 +109,22 @@
                                 self.serverId.push(res.serverId);
                                 if (i < length) {
                                     upload();
-                                    self.btntext='上传中...';
                                 } else {
                                     Indicator.open({
-                                        text: '请等待...',
+                                        text: '正在处理',
                                         spinnerType: 'fading-circle'
                                     });
                                     self.$http.post('upload', {url: self.serverId,openid:self.openid}).then(function (resu) {
                                         if (resu.data.status) {
                                             Indicator.close();
-                                            self.btntext='跳转页面...';
                                             let instance = Toast({
                                                 message: resu.data.msg,
-                                                iconClass: 'icon icon-success'
+                                                iconClass: 'mintui mintui-success'
                                             });
                                             setTimeout(() => {
                                                 instance.close();
+                                                self.$router.push({path: '/person', query: {picid: resu.data.picid}});
                                             }, 500)
-                                            self.$router.push({path: '/person', query: {picid: resu.data.picid}});
                                         }
                                     });
                                 }
@@ -190,6 +187,13 @@
             },
             entrySubmit(){
                 this.$router.push({path: '/person', query: {picid: this.picid}});
+            },
+            previewImage(index){
+                var self=this;
+                wx.previewImage({
+                    current: self.piclist[index],
+                    urls: self.piclist
+                });
             }
         }
     }

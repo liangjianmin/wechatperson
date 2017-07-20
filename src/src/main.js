@@ -1,14 +1,15 @@
 import Vue from 'vue'
-import App from './App.vue'
 import MinUi from 'mint-ui'
+import App from './App.vue'
 import axios from 'axios'
 import VueRouter from 'vue-router'
-import 'mint-ui/lib/style.css'
 import filters from './filters'
-require('../assets/css/index.css');
-
 Vue.use(MinUi)
 Vue.use(VueRouter)
+
+require('../assets/css/index.css');
+require('mint-ui/lib/style.css');
+
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
 
 const Home = resolve => require(['./views/home.vue'], resolve)

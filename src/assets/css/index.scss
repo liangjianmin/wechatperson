@@ -6,21 +6,22 @@
   overflow: hidden;
 }
 .tip-prompt{
-  width: 100%;
-  padding:5px 0 0px 10px;
+  width: 90%;
+  padding: 5px 0 0 0;
   font-size: 13px;
-  text-align: left;
-  color: #ffffff;
+  color: #fff;
+  margin: 0 auto;
   .time{
     width: 100%;
     line-height: 38px;
   }
 }
 .auth-user{
-  width: 100%;
-  padding:5px 0 10px 10px;
+  width: 90%;
+  padding:10px 0;
   font-size: 13px;
   text-align: left;
+  margin: 0 auto;
   color: #ffffff;
   .headimg{
     width: 50px;
@@ -81,4 +82,8 @@
     display: block;
     color: #ffffff;
   }
+}
+
+.mintui{
+  font-size: 56px !important;
 }

@@ -211,12 +211,25 @@ WeChat.prototype.handleMsg = function (req, res) {
                             content += "阿弥陀佛\n\n";
                             content += "回复以下数字：\n\n";
                             content += "1：获取你的法号\n\n";
-                            content += "回复 “老司机”  一起跟老司机聊污话题~\n\n";
-                            content += "进入主页：http://lianjianmintest.tunnel.echomod.cn";
+                            content += "回复 “老司机”  一起跟老司机玩套路~\n\n";
+                            content += "点击下面链接制作您的相册：\n";
+                            content += "http://lianjianmintest.tunnel.echomod.cn";
                             reportMsg = msg.txtMsg(fromUser, toUser, content);
                             break;
                         case 'click':
                             var contentArr = [
+                                {
+                                    Title: "老司机便利店上演重庆森林",
+                                    Description: "老司机便利店上演重庆森林",
+                                    PicUrl: "http://lianjianmintest.tunnel.echomod.cn/images/dsjkd.webp",
+                                    Url: "https://mp.weixin.qq.com/s?__biz=MzAxMDY1NTM3MA==&mid=2651911819&idx=1&sn=0a46ed06c014e99bd232572f102bb7dd&chksm=80a9556eb7dedc78bfd220b6bf2f9b01b330170494c2c418114f4f0e7e3206cee6d38df16655&mpshare=1&scene=1&srcid=0713gpzjhKEBgkWE2OqAcwUt#rd"
+                                },
+                                {
+                                    Title: "老司机开车玩套路，后院起火被KO!",
+                                    Description: "老司机开车玩套路，后院起火被KO!",
+                                    PicUrl: "http://lianjianmintest.tunnel.echomod.cn/images/wqww.webp",
+                                    Url: "https://mp.weixin.qq.com/s?__biz=MzAxMDY1NTM3MA==&mid=2651911956&idx=1&sn=d40fa1e69ce936d47f0f1245242192c4&chksm=80a954f1b7dedde7b0b0985b040741829460e5fe0fd581dec49513d65b621f9e355aa1660e50&mpshare=1&scene=1&srcid=0713gy1v5h7iEb8hFZylOiKL#rd"
+                                },
                                 {
                                     Title: "吓坏老司机，这可能是史上最牛逼的女司机",
                                     Description: "吓坏老司机，这可能是史上最牛逼的女司机",
@@ -245,6 +258,18 @@ WeChat.prototype.handleMsg = function (req, res) {
                             case '老司机':
                                 var contentArr = [
                                     {
+                                        Title: "老司机便利店上演重庆森林",
+                                        Description: "老司机便利店上演重庆森林",
+                                        PicUrl: "http://lianjianmintest.tunnel.echomod.cn/images/dsjkd.webp",
+                                        Url: "https://mp.weixin.qq.com/s?__biz=MzAxMDY1NTM3MA==&mid=2651911819&idx=1&sn=0a46ed06c014e99bd232572f102bb7dd&chksm=80a9556eb7dedc78bfd220b6bf2f9b01b330170494c2c418114f4f0e7e3206cee6d38df16655&mpshare=1&scene=1&srcid=0713gpzjhKEBgkWE2OqAcwUt#rd"
+                                    },
+                                    {
+                                        Title: "老司机开车玩套路，后院起火被KO!",
+                                        Description: "老司机开车玩套路，后院起火被KO!",
+                                        PicUrl: "http://lianjianmintest.tunnel.echomod.cn/images/wqww.webp",
+                                        Url: "https://mp.weixin.qq.com/s?__biz=MzAxMDY1NTM3MA==&mid=2651911956&idx=1&sn=d40fa1e69ce936d47f0f1245242192c4&chksm=80a954f1b7dedde7b0b0985b040741829460e5fe0fd581dec49513d65b621f9e355aa1660e50&mpshare=1&scene=1&srcid=0713gy1v5h7iEb8hFZylOiKL#rd"
+                                    },
+                                    {
                                         Title: "吓坏老司机，这可能是史上最牛逼的女司机",
                                         Description: "吓坏老司机，这可能是史上最牛逼的女司机",
                                         PicUrl: "http://lianjianmintest.tunnel.echomod.cn/images/h0398l.webp",
@@ -261,7 +286,9 @@ WeChat.prototype.handleMsg = function (req, res) {
                                 reportMsg = msg.graphicMsg(fromUser, toUser, contentArr);
                                 break;
                             default:
-                                reportMsg = msg.txtMsg(fromUser, toUser, '亲，你这是想搞事情嘛');
+                                var tx = ['洗澡中，请勿打扰，偷窥请购票，个体四十，团体八折，订票电话：一般人我不告诉他！', '你慢慢说，别急', '你要和我说话？', '你真的要和我说话？', '主人出去了，你稍等哈', '这是自动回复', '你是谁？', '你没发错吧？'];
+                                var txlen = Math.floor(Math.random() * tx.length)
+                                reportMsg = msg.txtMsg(fromUser, toUser, tx[txlen]);
                                 break;
                         }
                     }

@@ -2,12 +2,12 @@
   "button": [
     {
       "type": "view",
-      "name": "个人主页",
+      "name": "制作相册",
       "url": "http://lianjianmintest.tunnel.echomod.cn"
     },
     {
       "type": "click",
-      "name": "聊污话题",
+      "name": "看套路",
       "key": "today_recommend"
     },
     {
@@ -25,7 +25,7 @@
         },
         {
           "type": "pic_sysphoto",
-          "name": "发污图",
+          "name": "拍照",
           "key": "take_photo"
         },
         {

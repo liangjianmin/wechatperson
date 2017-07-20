@@ -180,7 +180,7 @@ module.exports = {
                scrollEnd(a);
              })
        };
-     new App($(".nr"), 1);
+     new App($(".nr"), 2);
      $("#pre_page").on('click', function () {
        prePage();
      });
