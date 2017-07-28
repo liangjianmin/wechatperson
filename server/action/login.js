@@ -10,8 +10,9 @@ module.exports = function (app) {
      *  设置回调地址get_wx_access_token
      */
     app.get('/wx_login', function (req, res, next) {
+    	var url = req.protocol + '://' + req.hostname+'/';
         var router = 'get_wx_access_token';
-        var return_uri = 'http://lianjianmintest.tunnel.echomod.cn/' + router;
+        var return_uri = url + router;
         var scope = 'snsapi_userinfo';
         var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + config.appID + '&redirect_uri=' + return_uri + '&response_type=code&scope=' + scope + '&state=STATE#wechat_redirect';
         res.send({data: url, status: true})
@@ -22,6 +23,7 @@ module.exports = function (app) {
      */
     app.get('/get_wx_access_token', function (req, res, next) {
         // 通过code换取网页授权access_token
+        var urls = req.protocol + '://' + req.hostname;
         var code = req.query.code;
         request.get({
                 url: 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' + config.appID + '&secret=' + config.appScrect + '&code=' + code + '&grant_type=authorization_code',
@@ -44,7 +46,7 @@ module.exports = function (app) {
                                         for (let i = 0; i < data.data.length; i++) {
                                             if (userinfo.openid == data.data[i].openid) {
                                                 userfalg = false;
-                                                res.redirect('http://lianjianmintest.tunnel.echomod.cn/#/home?openid=' + userinfo.openid);
+                                                res.redirect(urls+'/#/home?openid=' + userinfo.openid);
                                                 break;
                                             }
                                         }
@@ -61,7 +63,7 @@ module.exports = function (app) {
                                             sql: "INSERT INTO wsuser SET ?"
                                         }, function (data) {
                                             if (data.status) {
-                                                res.redirect('http://lianjianmintest.tunnel.echomod.cn/#/home?openid=' + userinfo.openid);
+                                                res.redirect(urls+'/#/home?openid=' + userinfo.openid);
                                             }
                                         });
                                     }

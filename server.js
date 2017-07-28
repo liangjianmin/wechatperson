@@ -67,7 +67,7 @@ app.get('*', function (req, res) {
 });
 
 app.listen(80, function () {
-    console.log('listen 18080')
+    console.log('listen 80')
 });
 
 
